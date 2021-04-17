@@ -1,3 +1,3 @@
 # TankRechner
 
-Programm zur Auswertung und zum Vergleich von Tankdaten.
+#Programm zur Auswertung und zum Vergleich von Tankdaten.
