@@ -66,8 +66,12 @@ autoEingabe:
 	printf("\nModell: ");
 	cin >> BenutzerEinrichtung.autoModell;
 passwortEingabe:
-	printf("\nErstelle ein Passwort: ");
+	printf("\nErstelle ein Passwort mit mindestens 4 Zeichen: ");
 	cin >> BenutzerEinrichtung.passwort;
+	if (BenutzerEinrichtung.passwort.length() < 4)
+	{
+		goto passwortEingabe;
+	}
 	BenutzerEinrichtung.neueBenutzerDatei(); // Funktion "neueBenutzerDatei" aus dem Header "NeuerBenutzer.h" wird aufgerufen.
 	goto home;
 benutzerEntfernen:
