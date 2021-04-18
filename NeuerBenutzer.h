@@ -5,10 +5,13 @@
 #include<vector>
 using namespace std;
 
+int benutzerGesamt = 0;
+
 class NeuerBenutzer
 {
 public:
 
+	
 	string listenName;
 	string name[2];
 	string autoMarke;
@@ -23,9 +26,10 @@ public:
 		*/
 	void neueBenutzerDatei() 
 	{
+		benutzerGesamt++;
 		ofstream benutzerDateien;
 		benutzerDateien.open("BenutzerDateien", benutzerDateien.app);
-		benutzerDateien << listenName << "\n";
+		benutzerDateien << ". " << listenName << "\n";
 		benutzerDateien.close();
 
 		ofstream dateiInfo;
@@ -34,8 +38,24 @@ public:
 		dateiInfo.close();
 
 		ofstream passWortListe;
-		passWortListe.open("PasswortListe", passWortListe.app);
+		passWortListe.open("PasswortListe" , passWortListe.app);
 		passWortListe << passwort << "\n";
 		passWortListe.close();
+	}
+
+	// Benutzer entfernen
+	void BenutzerEntfernen()
+	{
+		system("cls");
+		printf("Welchen Benutzer wollen Sie entfernen?\n");
+		ifstream datei("BenutzerDateien");
+		string zeile;
+//TO DO: Hier FOR-Schleife um WHILE-Schleife bauen und "benutzeGesamt" durch FOR-Schleifen-Variable ersetzen.
+			while (getline(datei, zeile))
+			{
+				cout << "\n" << benutzerGesamt << ". " << zeile;
+			}
+		datei.close();
+		cin >> passwort;
 	}
 };
