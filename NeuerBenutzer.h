@@ -28,17 +28,17 @@ public:
 	{
 		benutzerGesamt++;
 		ofstream benutzerDateien;
-		benutzerDateien.open("BenutzerDateien", benutzerDateien.app);
-		benutzerDateien << ". " << listenName << "\n";
+		benutzerDateien.open("BenutzerDateien.txt", benutzerDateien.app);
+		benutzerDateien << "\n" << listenName;
 		benutzerDateien.close();
 
 		ofstream dateiInfo;
-		dateiInfo.open(name[0], dateiInfo.app);
+		dateiInfo.open(name[0] + ".txt", dateiInfo.app);
 		dateiInfo << "Name:\t" << name[0] << " " << name[1] << "\nMarke:\t" << autoMarke << "\nModell:\t" << autoModell << "\n\n";
 		dateiInfo.close();
 
 		ofstream passWortListe;
-		passWortListe.open("PasswortListe" , passWortListe.app);
+		passWortListe.open("PasswortListe.txt" , passWortListe.app);
 		passWortListe << passwort << "\n";
 		passWortListe.close();
 	}
@@ -48,14 +48,14 @@ public:
 	{
 		system("cls");
 		printf("Welchen Benutzer wollen Sie entfernen?\n");
-		ifstream datei("BenutzerDateien");
+		ifstream datei("BenutzerDateien.txt");
 		string zeile;
-//TO DO: Hier FOR-Schleife um WHILE-Schleife bauen und "benutzeGesamt" durch FOR-Schleifen-Variable ersetzen.
+//TO DO: Hier FOR-Schleife um WHILE-Schleife bauen und FOR-Schleifen-Variable als Auflistungszähler benutzen.
 			while (getline(datei, zeile))
 			{
-				cout << "\n" << benutzerGesamt << ". " << zeile;
+				cout << "\n" << zeile;
 			}
-		datei.close();
-		cin >> passwort;
+			datei.close();
+			cin >> passwort;
 	}
 };
