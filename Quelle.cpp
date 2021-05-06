@@ -63,7 +63,7 @@ neuerBenutzer:
 autoEingabe:
 	printf("\nAutomarke: ");
 	cin >> BenutzerEinrichtung.autoMarke;
-	printf("\nModell: ");
+	printf("\nMoodell: ");
 	cin >> BenutzerEinrichtung.autoModell;
 passwortEingabe:
 	printf("\nErstelle ein Passwort mit mindestens 4 Zeichen: ");
